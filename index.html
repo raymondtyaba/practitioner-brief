@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Food Insecurity and Diagnosed Diabetes Across U.S. Counties</title>
+<style>
+:root{--ink:#17324d;--muted:#526577;--accent:#156f78;--accent2:#d9643a;--paper:#fff;--wash:#f3f7f8;--line:#d9e3e7}
+*{box-sizing:border-box}body{margin:0;background:var(--wash);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.65}
+main{width:min(920px,calc(100% - 32px));margin:36px auto;background:var(--paper);padding:clamp(24px,5vw,58px);box-shadow:0 12px 35px rgba(23,50,77,.1);border-top:7px solid var(--accent)}
+.eyebrow{font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 8px}
+h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;margin:0 0 14px;max-width:850px}
+.deck{font-size:1.15rem;color:var(--muted);margin:0 0 34px;max-width:780px}
+h2{font-size:1.35rem;margin:38px 0 10px;border-bottom:2px solid var(--line);padding-bottom:7px}
+p{margin:0 0 16px}.summary{font-size:1.14rem;background:#eaf4f4;border-left:5px solid var(--accent);padding:20px 22px;margin:18px 0 30px}
+figure{margin:28px 0;background:#fff;border:1px solid var(--line);padding:14px}
+figure img{display:block;width:100%;height:auto}.chart-fallback{display:none;padding:40px;text-align:center;color:var(--muted);background:#f8fafb;border:1px dashed #9fb2bd}
+figcaption{font-size:.92rem;color:var(--muted);margin-top:10px}
+.callout{background:#fff5ef;border-left:5px solid var(--accent2);padding:18px 20px;margin:24px 0}
+.source{font-size:.88rem;color:var(--muted);margin-top:36px;padding-top:18px;border-top:1px solid var(--line)}
+a{color:var(--accent)}
+@media(max-width:600px){main{margin:0 auto;width:100%;box-shadow:none;padding:24px 20px}h1{font-size:2rem}}
+@media print{body{background:#fff}main{box-shadow:none;margin:0;width:100%}}
+</style>
+</head>
+<body>
+<main>
+<p class="eyebrow">Practitioner Brief | TruBridge Healthcare Data Analytics Externship</p>
+<h1>Counties With Higher Food Insecurity Have Higher Diagnosed Diabetes Prevalence</h1>
+<p class="deck">A county-level analysis of 2,957 U.S. counties using CDC PLACES data</p>
+
+<h2>Summary</h2>
+<p class="summary">Across the counties studied, communities with higher food insecurity generally had higher diagnosed diabetes prevalence. The pattern was strong and consistent, but it describes communities rather than individual patients and does not prove that food insecurity causes diabetes.</p>
+
+<h2>Background</h2>
+<p>Food insecurity can make it harder for people to obtain a reliable supply of nutritious food, follow a diabetes-friendly diet, and manage long-term health needs. Diabetes can also place financial pressure on households through treatment costs and missed work. For a TruBridge care team member, the practical question is whether food insecurity is relevant when considering community diabetes burden. For a healthcare administrator, the question is whether the pattern could help identify counties where screening, referral partnerships, or community support deserve closer review.</p>
+<p>The analysis used the Centers for Disease Control and Prevention’s PLACES: Local Data for Better Health, County Data, 2025 Release. The source provides county-level, model-based estimates for health outcomes and health-related social needs. The two measures selected were food insecurity during the past 12 months among adults and diagnosed diabetes among adults. Both measures were aligned to the same county identifiers, measurement period, and prevalence type.</p>
+
+<h2>Methods</h2>
+<p>The source file was cleaned and reshaped so that each county appeared once with one food-insecurity value and one diagnosed-diabetes value. Exact duplicates were removed, percentage values were converted to numeric form, and the final records were checked for valid ranges. One county with a missing diabetes value was removed. Food insecurity was missing for 658 counties, or 22.24% of the prepared sample, so those values were replaced with the median value of 15.80% in line with the project’s missing-data decision guide. A straight-line relationship check was then used to measure whether the two county percentages tended to move together. The most consequential limitation is that replacing more than one fifth of the food-insecurity values with the same median may have reduced variation and affected the estimated strength of the pattern.</p>
+
+<h2>Finding</h2>
+<p>Across 2,957 U.S. counties, higher food-insecurity prevalence was associated with higher diagnosed-diabetes prevalence. The pattern was strong, positive, and unlikely to be explained by random variation alone. The chart shows that counties with greater reported food insecurity tend to cluster at higher levels of diagnosed diabetes, although counties do not all follow the same pattern.</p>
+
+<figure>
+<img src="food_insecurity_diabetes_chart.png" alt="Scatter plot showing that U.S. counties with higher food insecurity prevalence tend to have higher diagnosed diabetes prevalence" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+<div class="chart-fallback">Chart file not found. Place <strong>food_insecurity_diabetes_chart.png</strong> in the same folder as this HTML file before publishing.</div>
+<figcaption><strong>Figure 1.</strong> U.S. counties with higher food insecurity generally show higher diagnosed diabetes prevalence.</figcaption>
+</figure>
+
+<p>The relationship should not be read as evidence that food insecurity directly causes diabetes. County age distribution, income, rurality, insurance coverage, healthcare access, and other local conditions may influence both measures. The result is also ecological: it does not show that the same individuals experiencing food insecurity are the individuals diagnosed with diabetes. County-level averages can hide substantial differences between residents and neighbourhoods within the same county.</p>
+
+<h2>Implications</h2>
+<p>TruBridge care teams working with communities that have high diabetes burden might consider food insecurity as one factor worth examining during community needs assessment. Teams may want to review whether current workflows connect patients to nutrition assistance, food-access resources, or community partners, while avoiding assumptions about any individual patient based only on county conditions. Healthcare administrators might use the pattern to prioritise deeper local assessment, compare it with service-use data, or identify counties where coordinated diabetes and social-needs initiatives could be explored.</p>
+<div class="callout"><strong>Use with care:</strong> This finding can help direct attention, but it cannot identify the best intervention or show that changing food access alone will reduce diabetes prevalence. Local data and patient-level assessment are still needed before taking action.</div>
+
+<p class="source"><strong>Data source:</strong> Centers for Disease Control and Prevention, PLACES: Local Data for Better Health, County Data, 2025 Release. Analysis prepared for the TruBridge Healthcare Data Analytics Externship.</p>
+</main>
+</body>
+</html>
